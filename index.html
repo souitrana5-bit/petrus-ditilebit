@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petrus Paulus Ditilebit, S.Kom - Portofolio ASN</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * { font-family: 'Roboto', sans-serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; }
+        
+        .dark { 
+            --bg-primary: #0f172a; 
+            --bg-secondary: #1e293b; 
+            --text-primary: #f8fafc; 
+            --text-secondary: #cbd5e1; 
+        }
+        
+        .light { 
+            --bg-primary: #ffffff; 
+            --bg-secondary: #f8fafc; 
+            --text-primary: #0f172a; 
+            --text-secondary: #64748b; 
+        }
+        
+        body { 
+            background-color: var(--bg-primary); 
+            color: var(--text-primary); 
+            transition: all 0.3s ease; 
+        }
+        
+        /* Enhanced Hero Animations */
+        .hero-gradient { 
+            background: linear-gradient(135deg, #0A4D8C 0%, #1e40af 50%, #3b82f6 100%);
+            position: relative;
+            overflow: hidden;
+            animation: gradientShift 8s ease-in-out infinite;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background: linear-gradient(135deg, #0A4D8C 0%, #1e40af 50%, #3b82f6 100%); }
+            50% { background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #06b6d4 100%); }
+        }
+        
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="rgba(255,255,255,0.1)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="400" cy="700" r="120" fill="url(%23a)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        /* Animated Particles */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: particleFloat 15s linear infinite;
+        }
+        
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Enhanced Card Animations */
+        .card-hover { 
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+        }
+        
+        .card-hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s ease;
+            z-index: 1;
+        }
+        
+        .card-hover:hover::before {
+            left: 100%;
+        }
+        
+        .card-hover:hover { 
+            transform: translateY(-15px) rotateX(5deg) rotateY(5deg) scale(1.03);
+            box-shadow: 0 30px 60px rgba(10, 77, 140, 0.3);
+        }
+        
+        /* Typing Animation */
+        .typing-animation {
+            overflow: hidden;
+            border-right: 3px solid rgba(255, 255, 255, 0.75);
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: rgba(255, 255, 255, 0.75); }
+        }
+        
+        /* Morphing Shapes */
+        .morphing-shape {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(45deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.1));
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            animation: morph 8s ease-in-out infinite;
+        }
+        
+        @keyframes morph {
+            0%, 100% {
+                border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+                transform: translate(0, 0) rotate(0deg);
+            }
+            50% {
+                border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+                transform: translate(50px, -50px) rotate(180deg);
+            }
+        }
+        
+        /* Enhanced Skill Bars */
+        .skill-bar { 
+            transition: width 2s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(90deg, #0A4D8C, #1e40af, #3b82f6);
+        }
+        
+        .skill-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        /* Staggered Fade In */
+        .fade-in { 
+            opacity: 0; 
+            transform: translateY(50px); 
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .fade-in.visible { 
+            opacity: 1; 
+            transform: translateY(0); 
+        }
+        
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .fade-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .fade-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        /* Bouncing Elements */
+        .bounce-in {
+            animation: bounceIn 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.3);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        /* Timeline Enhancements */
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.6s ease;
+        }
+        
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            background: linear-gradient(135deg, #0A4D8C, #3b82f6);
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 4px rgba(10, 77, 140, 0.2);
+            animation: pulse 2s infinite;
+            z-index: 2;
+        }
+        
+        @keyframes pulse {
+            0% { 
+                box-shadow: 0 0 0 0 rgba(10, 77, 140, 0.4);
+                transform: scale(1);
+            }
+            70% { 
+                box-shadow: 0 0 0 10px rgba(10, 77, 140, 0);
+                transform: scale(1.1);
+            }
+            100% { 
+                box-shadow: 0 0 0 0 rgba(10, 77, 140, 0);
+                transform: scale(1);
+            }
+        }
+        
+        /* Glass Effect Enhancement */
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .glass-effect:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        /* Animated Text Gradient */
+        .text-gradient {
+            background: linear-gradient(135deg, #0A4D8C, #3b82f6, #06b6d4, #8b5cf6);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientMove 4s ease infinite;
+        }
+        
+        @keyframes gradientMove {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* Enhanced Button Animations */
+        .btn-primary {
+            background: linear-gradient(135deg, #0A4D8C, #1e40af);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(10, 77, 140, 0.4);
+        }
+        
+        .btn-primary:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+        
+        /* Section Divider Animation */
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #0A4D8C, transparent);
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-divider::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+            animation: dividerShine 3s ease-in-out infinite;
+        }
+        
+        @keyframes dividerShine {
+            0% { left: -100%; }
+            50% { left: 100%; }
+            100% { left: 100%; }
+        }
+        
+        /* Floating Elements Enhancement */
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        
+        .floating-elements::before,
+        .floating-elements::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 15s ease-in-out infinite;
+        }
+        
+        .floating-elements::before {
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .floating-elements::after {
+            bottom: 10%;
+            right: 10%;
+            animation-delay: 7s;
+        }
+        
+        /* Icon Animations */
+        .icon-bounce {
+            animation: iconBounce 2s ease-in-out infinite;
+        }
+        
+        @keyframes iconBounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        /* Hover Glow Effect */
+        .glow-on-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .glow-on-hover:hover {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
+            transform: scale(1.05);
+        }
+        
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, #0A4D8C, #3b82f6, #06b6d4);
+            z-index: 9999;
+            transition: width 0.1s ease;
+        }
+        
+        /* Loading Animation */
+        .loading-dots {
+            display: inline-block;
+        }
+        
+        .loading-dots::after {
+            content: '';
+            animation: dots 1.5s steps(5, end) infinite;
+        }
+        
+        @keyframes dots {
+            0%, 20% { content: ''; }
+            40% { content: '.'; }
+            60% { content: '..'; }
+            80%, 100% { content: '...'; }
+        }
+    </style>
+</head>
+<body class="light">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full glass-effect z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16">
+            <div class="flex justify-between items-center py-8">
+                <div class="text-xl font-bold text-gradient flex-shrink-0">
+                    Petrus P. Ditilebit, S.Kom
+                </div>
+                <div class="hidden md:flex items-center space-x-10 flex-1 justify-center">
+                    <a href="#beranda" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 transition-all duration-300 font-medium relative group px-2 py-1">
+                        Beranda
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#profil" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 transition-all duration-300 font-medium relative group px-2 py-1">
+                        Profil
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#portofolio" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 transition-all duration-300 font-medium relative group px-2 py-1">
+                        Portofolio
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#keahlian" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 transition-all duration-300 font-medium relative group px-2 py-1">
+                        Keahlian
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#kontak" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 transition-all duration-300 font-medium relative group px-2 py-1">
+                        Kontak
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </div>
+                <button id="themeToggle" class="p-3 rounded-full glass-effect hover:bg-white/20 transition-all duration-300 transform hover:scale-110 flex-shrink-0">
+                    <i class="fas fa-moon dark:hidden text-gray-700"></i>
+                    <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+    
+    <!-- Hero Section -->
+    <section id="beranda" class="hero-gradient min-h-screen flex items-center justify-center text-white relative">
+        <div class="floating-elements"></div>
+        <div class="particles"></div>
+        <div class="morphing-shape" style="top: 10%; left: 5%; animation-delay: 0s;"></div>
+        <div class="morphing-shape" style="bottom: 15%; right: 10%; animation-delay: 4s;"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <div class="fade-in">
+                <div class="w-56 h-56 mx-auto mb-8 rounded-full overflow-hidden border-4 border-white/30 shadow-2xl backdrop-blur-sm bg-white/10 relative bounce-in glow-on-hover">
+                    <img src="https://freeimage.host/i/KYYmX4a" alt="Petrus Paulus Ditilebit, S.Kom" class="w-full h-full object-cover relative z-10" onerror="this.src=''; this.alt='Foto tidak dapat dimuat'; this.style.display='none'; this.parentElement.innerHTML='<div class=\'w-full h-full bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 flex items-center justify-center relative\'><div class=\'absolute inset-0 bg-gradient-to-br from-transparent via-white/10 to-transparent\'></div><i class=\'fas fa-user-tie text-7xl text-white relative z-10 icon-bounce\'></i></div>';">
+                </div>
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                    <span class="block fade-in-left">Petrus Paulus</span>
+                    <span class="block text-yellow-300 fade-in-right typing-animation">Ditilebit, S.Kom</span>
+                </h1>
+                <div class="mb-8 space-y-2">
+                    <p class="text-xl md:text-2xl font-medium opacity-95">Aparatur Sipil Negara</p>
+                    <p class="text-lg md:text-xl opacity-85">Dinas Kependudukan dan Pencatatan Sipil</p>
+                    <p class="text-base md:text-lg opacity-75 font-light">Kabupaten Kepulauan Tanimbar, Maluku</p>
+                </div>
+                <div class="mb-12 p-6 glass-effect rounded-2xl max-w-4xl mx-auto">
+                    <p class="text-2xl md:text-3xl font-semibold text-yellow-300 mb-4">"Transformasi Digital untuk Pelayanan Prima"</p>
+                    <p class="text-lg md:text-xl opacity-90 leading-relaxed">
+                        Menghadirkan inovasi teknologi informasi yang mengutamakan integritas, transparansi, dan efisiensi 
+                        dalam setiap aspek pelayanan administrasi kependudukan untuk mewujudkan good governance yang berkelanjutan.
+                    </p>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#portofolio" class="btn-primary text-white px-10 py-4 rounded-full font-semibold transition-all transform hover:scale-105 inline-flex items-center gap-3 shadow-xl">
+                        <i class="fas fa-briefcase"></i>
+                        Eksplorasi Portofolio
+                    </a>
+                    <a href="#kontak" class="glass-effect border-2 border-white/30 text-white px-10 py-4 rounded-full font-semibold hover:bg-white/20 transition-all transform hover:scale-105 inline-flex items-center gap-3">
+                        <i class="fas fa-envelope"></i>
+                        Mulai Kolaborasi
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profil Section -->
+    <section id="profil" class="py-20 bg-gray-50 dark:bg-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Profil Singkat</h2>
+                <div class="w-24 h-1 bg-blue-800 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <h3 class="text-3xl font-bold mb-8 text-gradient">Visi & Dedikasi Profesional</h3>
+                    <div class="space-y-6">
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
+                            Sebagai <strong>Aparatur Sipil Negara</strong> yang berkomitmen pada transformasi digital, saya mengabdikan keahlian 
+                            teknologi informasi untuk merevolusi sistem pelayanan administrasi kependudukan di Kepulauan Tanimbar.
+                        </p>
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
+                            Dengan fondasi pendidikan <strong>Sarjana Komputer</strong> dan pengalaman mendalam dalam digitalisasi sektor publik, 
+                            saya berfokus pada pengembangan solusi inovatif yang mengintegrasikan efisiensi operasional dengan standar pelayanan prima.
+                        </p>
+                        <div class="p-6 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-xl border-l-4 border-blue-600">
+                            <p class="text-gray-700 dark:text-gray-300 font-medium italic">
+                                "Setiap inovasi teknologi yang saya kembangkan bertujuan untuk memperkuat kepercayaan masyarakat 
+                                terhadap institusi pemerintah melalui transparansi, akuntabilitas, dan aksesibilitas layanan."
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div class="text-center p-4 bg-white dark:bg-slate-700 rounded-xl shadow-md">
+                            <i class="fas fa-graduation-cap text-2xl text-blue-600 mb-2"></i>
+                            <h4 class="font-semibold text-gray-900 dark:text-white text-sm">Pendidikan</h4>
+                            <p class="text-gray-600 dark:text-gray-300 text-xs">S1 Ilmu Komputer</p>
+                        </div>
+                        <div class="text-center p-4 bg-white dark:bg-slate-700 rounded-xl shadow-md">
+                            <i class="fas fa-building text-2xl text-blue-600 mb-2"></i>
+                            <h4 class="font-semibold text-gray-900 dark:text-white text-sm">Instansi</h4>
+                            <p class="text-gray-600 dark:text-gray-300 text-xs">Disdukcapil Kep. Tanimbar</p>
+                        </div>
+                        <div class="text-center p-4 bg-white dark:bg-slate-700 rounded-xl shadow-md">
+                            <i class="fas fa-map-marker-alt text-2xl text-blue-600 mb-2"></i>
+                            <h4 class="font-semibold text-gray-900 dark:text-white text-sm">Lokasi</h4>
+                            <p class="text-gray-600 dark:text-gray-300 text-xs">Maluku, Indonesia</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-in">
+                    <h3 class="text-3xl font-bold mb-8 text-gradient">Perjalanan Karier & Pencapaian</h3>
+                    <div class="relative border-l-4 border-gradient-to-b from-blue-600 to-blue-800 pl-8 space-y-8">
+                        <div class="timeline-item relative bg-white dark:bg-slate-700 p-6 rounded-xl shadow-lg">
+                            <div class="flex items-center mb-3">
+                                <i class="fas fa-calendar-alt text-blue-600 mr-2"></i>
+                                <h4 class="font-bold text-gray-900 dark:text-white text-lg">2020 - Sekarang</h4>
+                            </div>
+                            <h5 class="text-blue-800 dark:text-blue-400 font-bold text-xl mb-3">Aparatur Sipil Negara</h5>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm mb-3">Dinas Kependudukan dan Pencatatan Sipil Kabupaten Kepulauan Tanimbar</p>
+                            <ul class="text-gray-600 dark:text-gray-300 space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mr-2 mt-1 text-sm"></i>
+                                    <span>Memimpin transformasi digital sistem administrasi kependudukan</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mr-2 mt-1 text-sm"></i>
+                                    <span>Mengembangkan platform e-government terintegrasi</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mr-2 mt-1 text-sm"></i>
+                                    <span>Meningkatkan efisiensi pelayanan publik hingga 75%</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="timeline-item relative bg-white dark:bg-slate-700 p-6 rounded-xl shadow-lg">
+                            <div class="flex items-center mb-3">
+                                <i class="fas fa-calendar-alt text-blue-600 mr-2"></i>
+                                <h4 class="font-bold text-gray-900 dark:text-white text-lg">2018 - 2020</h4>
+                            </div>
+                            <h5 class="text-blue-800 dark:text-blue-400 font-bold text-xl mb-3">Spesialis IT Pemerintah Daerah</h5>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm mb-3">Bagian Teknologi Informasi Pemkab Kepulauan Tanimbar</p>
+                            <ul class="text-gray-600 dark:text-gray-300 space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mr-2 mt-1 text-sm"></i>
+                                    <span>Merancang infrastruktur jaringan pemerintahan</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mr-2 mt-1 text-sm"></i>
+                                    <span>Implementasi sistem keamanan data terintegrasi</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mr-2 mt-1 text-sm"></i>
+                                    <span>Pelatihan SDM dalam adopsi teknologi digital</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="timeline-item relative bg-white dark:bg-slate-700 p-6 rounded-xl shadow-lg">
+                            <div class="flex items-center mb-3">
+                                <i class="fas fa-calendar-alt text-blue-600 mr-2"></i>
+                                <h4 class="font-bold text-gray-900 dark:text-white text-lg">2014 - 2018</h4>
+                            </div>
+                            <h5 class="text-blue-800 dark:text-blue-400 font-bold text-xl mb-3">Pendidikan Sarjana</h5>
+                            <p class="text-gray-500 dark:text-gray-400 text-sm mb-3">Program Studi Ilmu Komputer</p>
+                            <ul class="text-gray-600 dark:text-gray-300 space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mr-2 mt-1 text-sm"></i>
+                                    <span>Spesialisasi Sistem Informasi dan Database Management</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mr-2 mt-1 text-sm"></i>
+                                    <span>Penelitian tentang E-Government di Daerah Terpencil</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mr-2 mt-1 text-sm"></i>
+                                    <span>Cum Laude dengan IPK 3.75</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portofolio Section -->
+    <section id="portofolio" class="py-20 bg-white dark:bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-5xl font-bold text-gradient mb-6">Portofolio Inovasi Digital</h2>
+                <div class="section-divider max-w-32 mx-auto mb-6"></div>
+                <p class="text-gray-600 dark:text-gray-300 max-w-4xl mx-auto text-xl leading-relaxed">
+                    Koleksi solusi teknologi transformatif yang telah berhasil diimplementasikan untuk mengoptimalkan 
+                    efisiensi operasional dan meningkatkan kualitas pelayanan administrasi kependudukan di era digital
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card-hover bg-white dark:bg-slate-800 rounded-2xl shadow-xl overflow-hidden fade-in border border-gray-100 dark:border-slate-700">
+                    <div class="h-56 bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 flex items-center justify-center relative">
+                        <div class="absolute inset-0 bg-black/10"></div>
+                        <i class="fas fa-id-card text-7xl text-white relative z-10"></i>
+                        <div class="absolute top-4 right-4 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1">
+                            <span class="text-white text-sm font-medium">2023</span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Sistem E-KTP Terpadu</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                            Platform digital terintegrasi untuk pendaftaran, pembaruan, dan verifikasi KTP secara online. 
+                            Mengurangi waktu pelayanan dari 7 hari menjadi 2 hari dengan tingkat akurasi 99.8%.
+                        </p>
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-center text-sm text-gray-600 dark:text-gray-300">
+                                <i class="fas fa-users text-blue-600 mr-2"></i>
+                                <span>15,000+ pengguna aktif</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600 dark:text-gray-300">
+                                <i class="fas fa-clock text-green-600 mr-2"></i>
+                                <span>Efisiensi waktu 70%</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-4 py-2 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium">React.js</span>
+                            <span class="px-4 py-2 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-sm font-medium">PostgreSQL</span>
+                            <span class="px-4 py-2 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm font-medium">API Gateway</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-white dark:bg-slate-800 rounded-2xl shadow-xl overflow-hidden fade-in border border-gray-100 dark:border-slate-700">
+                    <div class="h-56 bg-gradient-to-br from-emerald-500 via-emerald-600 to-emerald-700 flex items-center justify-center relative">
+                        <div class="absolute inset-0 bg-black/10"></div>
+                        <i class="fas fa-certificate text-7xl text-white relative z-10"></i>
+                        <div class="absolute top-4 right-4 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1">
+                            <span class="text-white text-sm font-medium">2022</span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Portal Akta Digital</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                            Sistem manajemen dokumen akta kelahiran, kematian, dan perkawinan dengan teknologi blockchain 
+                            dan verifikasi QR code untuk mencegah pemalsuan dokumen.
+                        </p>
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-center text-sm text-gray-600 dark:text-gray-300">
+                                <i class="fas fa-shield-alt text-emerald-600 mr-2"></i>
+                                <span>100% anti-pemalsuan</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600 dark:text-gray-300">
+                                <i class="fas fa-mobile-alt text-blue-600 mr-2"></i>
+                                <span>Akses mobile-friendly</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-4 py-2 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium">Flutter</span>
+                            <span class="px-4 py-2 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm font-medium">Blockchain</span>
+                            <span class="px-4 py-2 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 rounded-full text-sm font-medium">QR Code</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-white dark:bg-slate-800 rounded-2xl shadow-xl overflow-hidden fade-in border border-gray-100 dark:border-slate-700">
+                    <div class="h-56 bg-gradient-to-br from-violet-500 via-violet-600 to-violet-700 flex items-center justify-center relative">
+                        <div class="absolute inset-0 bg-black/10"></div>
+                        <i class="fas fa-chart-line text-7xl text-white relative z-10"></i>
+                        <div class="absolute top-4 right-4 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1">
+                            <span class="text-white text-sm font-medium">2024</span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Analytics Dashboard</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                            Sistem business intelligence untuk monitoring dan analisis data kependudukan real-time 
+                            dengan visualisasi interaktif dan prediksi demografis menggunakan machine learning.
+                        </p>
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-center text-sm text-gray-600 dark:text-gray-300">
+                                <i class="fas fa-brain text-violet-600 mr-2"></i>
+                                <span>AI-powered insights</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-600 dark:text-gray-300">
+                                <i class="fas fa-sync text-orange-600 mr-2"></i>
+                                <span>Real-time updates</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-4 py-2 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium">D3.js</span>
+                            <span class="px-4 py-2 bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 rounded-full text-sm font-medium">Python</span>
+                            <span class="px-4 py-2 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 rounded-full text-sm font-medium">TensorFlow</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Keahlian Section -->
+    <section id="keahlian" class="py-20 bg-gray-50 dark:bg-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Keahlian & Kompetensi</h2>
+                <div class="w-24 h-1 bg-blue-800 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="fade-in">
+                    <h3 class="text-2xl font-semibold mb-8 text-gray-900 dark:text-white">Keahlian Teknis</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700 dark:text-gray-300">Manajemen Data Kependudukan</span>
+                                <span class="text-blue-800 font-semibold">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
+                                <div class="skill-bar bg-blue-800 h-3 rounded-full" style="width: 0%" data-width="95%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700 dark:text-gray-300">Pengembangan Web & Mobile</span>
+                                <span class="text-blue-800 font-semibold">88%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
+                                <div class="skill-bar bg-blue-800 h-3 rounded-full" style="width: 0%" data-width="88%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700 dark:text-gray-300">Digitalisasi Administrasi</span>
+                                <span class="text-blue-800 font-semibold">92%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
+                                <div class="skill-bar bg-blue-800 h-3 rounded-full" style="width: 0%" data-width="92%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-700 dark:text-gray-300">Analisis Sistem & Database</span>
+                                <span class="text-blue-800 font-semibold">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
+                                <div class="skill-bar bg-blue-800 h-3 rounded-full" style="width: 0%" data-width="85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-in">
+                    <h3 class="text-2xl font-semibold mb-8 text-gray-900 dark:text-white">Soft Skills</h3>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="text-center p-6 bg-white dark:bg-slate-700 rounded-xl shadow-md glow-on-hover">
+                            <i class="fas fa-users text-3xl text-blue-800 mb-4 icon-bounce"></i>
+                            <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Kepemimpinan</h4>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm">Memimpin tim dalam proyek digitalisasi</p>
+                        </div>
+                        
+                        <div class="text-center p-6 bg-white dark:bg-slate-700 rounded-xl shadow-md glow-on-hover">
+                            <i class="fas fa-handshake text-3xl text-blue-800 mb-4 icon-bounce" style="animation-delay: 0.5s;"></i>
+                            <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Kolaborasi</h4>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm">Bekerja sama lintas departemen</p>
+                        </div>
+                        
+                        <div class="text-center p-6 bg-white dark:bg-slate-700 rounded-xl shadow-md glow-on-hover">
+                            <i class="fas fa-lightbulb text-3xl text-blue-800 mb-4 icon-bounce" style="animation-delay: 1s;"></i>
+                            <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Inovasi</h4>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm">Mengembangkan solusi kreatif</p>
+                        </div>
+                        
+                        <div class="text-center p-6 bg-white dark:bg-slate-700 rounded-xl shadow-md glow-on-hover">
+                            <i class="fas fa-heart text-3xl text-blue-800 mb-4 icon-bounce" style="animation-delay: 1.5s;"></i>
+                            <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Pelayanan</h4>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm">Orientasi pada kepuasan masyarakat</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Penghargaan Section -->
+    <section class="py-20 bg-white dark:bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Penghargaan & Sertifikat</h2>
+                <div class="w-24 h-1 bg-blue-800 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center p-8 bg-gradient-to-br from-yellow-50 to-yellow-100 dark:from-yellow-900 dark:to-yellow-800 rounded-xl fade-in glow-on-hover">
+                    <i class="fas fa-trophy text-5xl text-yellow-600 mb-4 icon-bounce"></i>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">ASN Berprestasi</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Penghargaan ASN Berprestasi Tingkat Kabupaten 2023</p>
+                </div>
+                
+                <div class="text-center p-8 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900 dark:to-blue-800 rounded-xl fade-in glow-on-hover">
+                    <i class="fas fa-certificate text-5xl text-blue-600 mb-4 icon-bounce" style="animation-delay: 0.5s;"></i>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Sertifikat IT</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Sertifikat Kompetensi Pengembangan Sistem Informasi</p>
+                </div>
+                
+                <div class="text-center p-8 bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900 dark:to-green-800 rounded-xl fade-in glow-on-hover">
+                    <i class="fas fa-medal text-5xl text-green-600 mb-4 icon-bounce" style="animation-delay: 1s;"></i>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Inovasi Terbaik</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Penghargaan Inovasi Pelayanan Publik Terbaik 2022</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak Section -->
+    <section id="kontak" class="py-20 bg-gray-50 dark:bg-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">Hubungi Saya</h2>
+                <div class="w-24 h-1 bg-blue-800 mx-auto mb-4"></div>
+                <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    Mari berkolaborasi untuk menciptakan inovasi pelayanan publik yang lebih baik
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="fade-in">
+                    <h3 class="text-2xl font-semibold mb-8 text-gray-900 dark:text-white">Informasi Kontak</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-800 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 dark:text-white">Email</h4>
+                                <p class="text-gray-600 dark:text-gray-300">petrus.ditilebit@disdukcapil-tanimbar.go.id</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-800 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-phone text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 dark:text-white">Telepon</h4>
+                                <p class="text-gray-600 dark:text-gray-300">+62 812-3456-7890</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-800 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-map-marker-alt text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 dark:text-white">Alamat Kantor</h4>
+                                <p class="text-gray-600 dark:text-gray-300">Dinas Kependudukan dan Pencatatan Sipil<br>Kabupaten Kepulauan Tanimbar, Maluku</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-semibold text-gray-900 dark:text-white mb-4">Media Sosial</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition-colors">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white hover:bg-blue-600 transition-colors">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white hover:bg-green-600 transition-colors">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-in">
+                    <form class="bg-white dark:bg-slate-700 p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-semibold mb-6 text-gray-900 dark:text-white">Kirim Pesan</h3>
+                        <div class="space-y-6">
+                            <div>
+                                <label class="block text-gray-700 dark:text-gray-300 font-medium mb-2">Nama Lengkap</label>
+                                <input type="text" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-800 focus:border-transparent dark:bg-slate-600 dark:text-white" placeholder="Masukkan nama lengkap">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 dark:text-gray-300 font-medium mb-2">Email</label>
+                                <input type="email" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-800 focus:border-transparent dark:bg-slate-600 dark:text-white" placeholder="Masukkan email">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 dark:text-gray-300 font-medium mb-2">Subjek</label>
+                                <input type="text" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-800 focus:border-transparent dark:bg-slate-600 dark:text-white" placeholder="Subjek pesan">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-gray-700 dark:text-gray-300 font-medium mb-2">Pesan</label>
+                                <textarea rows="5" class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-800 focus:border-transparent dark:bg-slate-600 dark:text-white" placeholder="Tulis pesan Anda..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-blue-800 text-white py-3 rounded-lg font-semibold hover:bg-blue-900 transition-colors transform hover:scale-105">
+                                Kirim Pesan
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white py-16 relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/20"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid md:grid-cols-3 gap-12 mb-12">
+                <div class="text-center md:text-left">
+                    <h3 class="text-3xl font-bold mb-4 text-gradient">Petrus Paulus Ditilebit, S.Kom</h3>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Aparatur Sipil Negara yang berdedikasi dalam transformasi digital pelayanan publik 
+                        di Kabupaten Kepulauan Tanimbar, Maluku.
+                    </p>
+                    <div class="flex justify-center md:justify-start space-x-4">
+                        <a href="#" class="w-12 h-12 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center transition-all transform hover:scale-110">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-blue-500 hover:bg-blue-600 rounded-full flex items-center justify-center transition-all transform hover:scale-110">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center transition-all transform hover:scale-110">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-gray-600 hover:bg-gray-700 rounded-full flex items-center justify-center transition-all transform hover:scale-110">
+                            <i class="fas fa-envelope text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="text-center md:text-left">
+                    <h4 class="text-xl font-semibold mb-6 text-yellow-300">Navigasi Cepat</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#beranda" class="text-gray-300 hover:text-white transition-colors">Beranda</a></li>
+                        <li><a href="#profil" class="text-gray-300 hover:text-white transition-colors">Profil Profesional</a></li>
+                        <li><a href="#portofolio" class="text-gray-300 hover:text-white transition-colors">Portofolio Inovasi</a></li>
+                        <li><a href="#keahlian" class="text-gray-300 hover:text-white transition-colors">Keahlian & Kompetensi</a></li>
+                        <li><a href="#kontak" class="text-gray-300 hover:text-white transition-colors">Hubungi Saya</a></li>
+                    </ul>
+                </div>
+                
+                <div class="text-center md:text-left">
+                    <h4 class="text-xl font-semibold mb-6 text-yellow-300">Informasi Kontak</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-center md:justify-start">
+                            <i class="fas fa-building text-blue-400 mr-3"></i>
+                            <span class="text-gray-300 text-sm">Disdukcapil Kep. Tanimbar</span>
+                        </div>
+                        <div class="flex items-center justify-center md:justify-start">
+                            <i class="fas fa-map-marker-alt text-blue-400 mr-3"></i>
+                            <span class="text-gray-300 text-sm">Maluku, Indonesia</span>
+                        </div>
+                        <div class="flex items-center justify-center md:justify-start">
+                            <i class="fas fa-envelope text-blue-400 mr-3"></i>
+                            <span class="text-gray-300 text-sm">petrus.ditilebit@disdukcapil.go.id</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-center md:text-left mb-4 md:mb-0">
+                        &copy; 2024 Petrus Paulus Ditilebit, S.Kom. Transformasi Digital untuk Pelayanan Prima.
+                    </p>
+                    <div class="flex items-center space-x-4">
+                        <span class="text-gray-400 text-sm">Dibuat dengan</span>
+                        <i class="fas fa-heart text-red-500"></i>
+                        <span class="text-gray-400 text-sm">untuk Indonesia</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark');
+            body.classList.toggle('light');
+        });
+
+        // Scroll Progress Bar
+        window.addEventListener('scroll', () => {
+            const scrollProgress = document.querySelector('.scroll-progress');
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.body.offsetHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            scrollProgress.style.width = scrollPercent + '%';
+        });
+
+        // Create Animated Particles
+        function createParticles() {
+            const particlesContainer = document.querySelector('.particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Initialize particles
+        createParticles();
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Enhanced Fade In Animation with Stagger
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 100); // Stagger animation
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animation elements
+        document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .timeline-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Skill Bar Animation with Enhanced Effects
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const skillBars = entry.target.querySelectorAll('.skill-bar');
+                    skillBars.forEach((bar, index) => {
+                        const width = bar.getAttribute('data-width');
+                        setTimeout(() => {
+                            bar.style.width = width;
+                            // Add completion effect
+                            setTimeout(() => {
+                                bar.style.boxShadow = '0 0 20px rgba(10, 77, 140, 0.5)';
+                            }, 2000);
+                        }, index * 200 + 500);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        const skillsSection = document.getElementById('keahlian');
+        if (skillsSection) {
+            skillObserver.observe(skillsSection);
+        }
+
+        // Enhanced Form Submission with Loading Animation
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const name = this.querySelector('input[type="text"]').value;
+            const email = this.querySelector('input[type="email"]').value;
+            const subject = this.querySelector('input[type="text"]:nth-of-type(2)').value;
+            const message = this.querySelector('textarea').value;
+            
+            // Simple validation
+            if (!name || !email || !subject || !message) {
+                alert('Mohon lengkapi semua field!');
+                return;
+            }
+            
+            // Simulate form submission with enhanced animation
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.innerHTML = 'Mengirim<span class="loading-dots"></span>';
+            submitBtn.disabled = true;
+            submitBtn.classList.add('animate-pulse');
+            
+            setTimeout(() => {
+                submitBtn.classList.remove('animate-pulse');
+                submitBtn.innerHTML = '<i class="fas fa-check mr-2"></i>Berhasil Dikirim!';
+                submitBtn.classList.add('bg-green-600');
+                
+                setTimeout(() => {
+                    alert('Pesan berhasil dikirim! Terima kasih atas pesan Anda.');
+                    this.reset();
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                    submitBtn.classList.remove('bg-green-600');
+                }, 1500);
+            }, 2000);
+        });
+
+        // Parallax Effect for Hero Section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.morphing-shape');
+            
+            parallaxElements.forEach((element, index) => {
+                const speed = 0.5 + (index * 0.2);
+                element.style.transform = `translateY(${scrolled * speed}px)`;
+            });
+        });
+
+        // Add hover sound effect simulation (visual feedback)
+        document.querySelectorAll('.glow-on-hover, .card-hover').forEach(element => {
+            element.addEventListener('mouseenter', function() {
+                this.style.transform += ' scale(1.02)';
+            });
+            
+            element.addEventListener('mouseleave', function() {
+                this.style.transform = this.style.transform.replace(' scale(1.02)', '');
+            });
+        });
+
+        // Typing Animation Reset on Scroll
+        let typingAnimationTriggered = false;
+        window.addEventListener('scroll', () => {
+            const typingElement = document.querySelector('.typing-animation');
+            const rect = typingElement.getBoundingClientRect();
+            
+            if (rect.top < window.innerHeight && rect.bottom > 0 && !typingAnimationTriggered) {
+                typingElement.style.animation = 'none';
+                setTimeout(() => {
+                    typingElement.style.animation = 'typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite';
+                }, 100);
+                typingAnimationTriggered = true;
+            }
+        });
+
+        // Mobile Menu (if needed)
+        const mobileMenuBtn = document.createElement('button');
+        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        mobileMenuBtn.className = 'md:hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors';
+        
+        // Add mobile menu functionality if screen is small
+        if (window.innerWidth < 768) {
+            const nav = document.querySelector('nav .flex');
+            nav.appendChild(mobileMenuBtn);
+        }
+
+        // Initialize all animations on page load
+        window.addEventListener('load', () => {
+            // Trigger initial animations
+            setTimeout(() => {
+                document.querySelector('.bounce-in').style.animation = 'bounceIn 1s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+            }, 500);
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'982497a684caa3e0',t:'MTc1ODQwNTU5Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
