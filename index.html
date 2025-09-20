@@ -467,12 +467,14 @@
 <body class="light">
     <!-- Navigation -->
     <nav class="fixed top-0 w-full glass-effect z-50 shadow-lg">
-        <div class="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
-                <div class="text-xl font-bold text-gradient flex-shrink-0">
+                <div class="text-lg sm:text-xl font-bold text-gradient flex-shrink-0">
                     Petrus P. Ditilebit, S.Kom
                 </div>
-                <div class="hidden md:flex items-center space-x-10 flex-1 justify-center">
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8 flex-1 justify-center">
                     <a href="#beranda" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 transition-all duration-300 font-medium relative group px-2 py-1">
                         Beranda
                         <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
@@ -494,10 +496,40 @@
                         <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
                     </a>
                 </div>
-                <button id="themeToggle" class="p-3 rounded-full glass-effect hover:bg-white/20 transition-all duration-300 transform hover:scale-110 flex-shrink-0">
-                    <i class="fas fa-moon dark:hidden text-gray-700"></i>
-                    <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
-                </button>
+
+                <!-- Mobile & Desktop Controls -->
+                <div class="flex items-center space-x-2">
+                    <button id="themeToggle" class="p-3 rounded-full glass-effect hover:bg-white/20 transition-all duration-300 transform hover:scale-110">
+                        <i class="fas fa-moon dark:hidden text-gray-700"></i>
+                        <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
+                    </button>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuBtn" class="md:hidden p-3 rounded-full glass-effect hover:bg-white/20 transition-all duration-300">
+                        <i class="fas fa-bars text-gray-700 dark:text-gray-300"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Navigation Menu -->
+            <div id="mobileMenu" class="md:hidden absolute top-full left-0 right-0 glass-effect border-t border-white/20 transform -translate-y-full opacity-0 invisible transition-all duration-300">
+                <div class="px-4 py-6 space-y-4">
+                    <a href="#beranda" class="mobile-nav-link block text-gray-700 dark:text-gray-300 hover:text-blue-600 transition-all duration-300 font-medium py-3 px-4 rounded-lg hover:bg-white/10">
+                        <i class="fas fa-home mr-3"></i>Beranda
+                    </a>
+                    <a href="#profil" class="mobile-nav-link block text-gray-700 dark:text-gray-300 hover:text-blue-600 transition-all duration-300 font-medium py-3 px-4 rounded-lg hover:bg-white/10">
+                        <i class="fas fa-user mr-3"></i>Profil
+                    </a>
+                    <a href="#portofolio" class="mobile-nav-link block text-gray-700 dark:text-gray-300 hover:text-blue-600 transition-all duration-300 font-medium py-3 px-4 rounded-lg hover:bg-white/10">
+                        <i class="fas fa-briefcase mr-3"></i>Portofolio
+                    </a>
+                    <a href="#keahlian" class="mobile-nav-link block text-gray-700 dark:text-gray-300 hover:text-blue-600 transition-all duration-300 font-medium py-3 px-4 rounded-lg hover:bg-white/10">
+                        <i class="fas fa-cogs mr-3"></i>Keahlian
+                    </a>
+                    <a href="#kontak" class="mobile-nav-link block text-gray-700 dark:text-gray-300 hover:text-blue-600 transition-all duration-300 font-medium py-3 px-4 rounded-lg hover:bg-white/10">
+                        <i class="fas fa-envelope mr-3"></i>Kontak
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
@@ -1238,16 +1270,70 @@
             }
         });
 
-        // Mobile Menu (if needed)
-        const mobileMenuBtn = document.createElement('button');
-        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-        mobileMenuBtn.className = 'md:hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors';
-        
-        // Add mobile menu functionality if screen is small
-        if (window.innerWidth < 768) {
-            const nav = document.querySelector('nav .flex');
-            nav.appendChild(mobileMenuBtn);
-        }
+        // Mobile Menu Functionality
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        let isMobileMenuOpen = false;
+
+        // Toggle mobile menu
+        mobileMenuBtn.addEventListener('click', () => {
+            isMobileMenuOpen = !isMobileMenuOpen;
+            
+            if (isMobileMenuOpen) {
+                // Open menu
+                mobileMenu.classList.remove('-translate-y-full', 'opacity-0', 'invisible');
+                mobileMenu.classList.add('translate-y-0', 'opacity-100', 'visible');
+                mobileMenuBtn.querySelector('i').classList.remove('fa-bars');
+                mobileMenuBtn.querySelector('i').classList.add('fa-times');
+                document.body.style.overflow = 'hidden'; // Prevent background scroll
+            } else {
+                // Close menu
+                mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'invisible');
+                mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'visible');
+                mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                document.body.style.overflow = ''; // Restore scroll
+            }
+        });
+
+        // Close mobile menu when clicking on nav links
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (isMobileMenuOpen) {
+                    mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'invisible');
+                    mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'visible');
+                    mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                    mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                    document.body.style.overflow = '';
+                    isMobileMenuOpen = false;
+                }
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (isMobileMenuOpen && !mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'invisible');
+                mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'visible');
+                mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                document.body.style.overflow = '';
+                isMobileMenuOpen = false;
+            }
+        });
+
+        // Close mobile menu on window resize to desktop
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768 && isMobileMenuOpen) {
+                mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'invisible');
+                mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'visible');
+                mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                document.body.style.overflow = '';
+                isMobileMenuOpen = false;
+            }
+        });
 
         // Initialize all animations on page load
         window.addEventListener('load', () => {
@@ -1257,5 +1343,5 @@
             }, 500);
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9824b6cf534d1f9f',t:'MTc1ODQwNjg2OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9824e5dfb29efd25',t:'MTc1ODQwODc5Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
